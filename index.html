@@ -61,12 +61,12 @@
         const undoElement = document.getElementById('undo');
         const redoElement = document.getElementById('redo');
 
-        const countries = [ 'Italy'];
-        const capitals = ['Rome'];
+        const countries = [ 'dog', 'hello', 'cat', 'bottom'];
+        const capitals = ['dog', 'hello', 'cat', 'bottom'];
 
         let randomNumber = Math.floor(Math.random() * countries.length);
 
-        questionElement.innerText = 'What is the capital of ' + countries[randomNumber] + '?';
+        questionElement.innerText = 'Can you spell ' + countries[randomNumber] + '?';
 
         editorElement.addEventListener('changed', (event) => {
             undoElement.disabled = !event.detail.canUndo;
@@ -110,7 +110,7 @@
             countries.splice(randomNumber, 1);
             capitals.splice(randomNumber, 1);
             randomNumber = Math.floor(Math.random() * countries.length);
-            questionElement.innerHTML = countries[randomNumber] ? 'What is the capital of ' + countries[randomNumber] + ' ?' : 'You won !';
+            questionElement.innerHTML = countries[randomNumber] ? 'Can you spell  ' + countries[randomNumber] + ' ?' : 'You won !';
             nextDivElement.innerHTML = '';
             editorElement.editor.clear();
             resultElement.innerHTML = '';
@@ -135,7 +135,7 @@
                     text: {
                         mimeTypes: ['text/plain', 'application/vnd.myscript.jiix'],
                         configuration: {
-                            customLexicon: ['Rome']
+                            customLexicon: ['Rome', 'Hello']
                         }
                     },
                 }
